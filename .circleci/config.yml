@@ -3,13 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.9
-        //on ci executor
-    working_directory: /go/src/github.com/laioffer/Around
-    steps:
       - checkout
       - setup_remote_docker
       - run: |
           docker build -t yyutong/around .
           docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_PASSWORD"
           docker push yyutong/around
-// yml ~~ json
